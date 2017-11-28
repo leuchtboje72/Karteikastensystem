@@ -11,8 +11,9 @@ und ein Karteikasten mit drei Fächern, die mit 1,2,3 benannt werden.
 Lernprinzip:<br>
 Jeden Tag gehen Sie durch alle Karten in Fach 1. 
 Sie schauen auf die Vorderseite und versuchen sich an die 
-Antwort zu erinnern. Dann drehen Sie die Karte um. 
-Liegen Sie mit der Antwort richtig, kommt die Karte in das nächsthöhere Fach (Fach 2).
+Antwort zu erinnern. 
+Dann drehen Sie die Karte um. Liegen Sie mit der Antwort richtig, 
+kommt die Karte in das nächsthöhere Fach.
 Wenn nicht, bleibt sie in Fach 1.
  
 Karten anlegen:<br>
