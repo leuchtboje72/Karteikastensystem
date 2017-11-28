@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <h1>Karten</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Frage</th>
+                <th>Antwort</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for karte in kartes %}
+            <tr>
+                <td><a href="{{ path('karte_show', { 'id': karte.id }) }}">{{ karte.id }}</a></td>
+                <td>{{ karte.frage }}</td>
+                <td>{{ karte.antwort }}</td>
+                <td>
+                    <ul>
+                        <li class="list-unstyled" >
+                            <a href="{{ path('karte_show', { 'id': karte.id }) }}">show</a>
+                        </li>
+                        <li class="list-unstyled">
+                            <a href="{{ path('karte_edit', { 'id': karte.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li class="list-unstyled">
+            <a href="{{ path('karte_new') }}" class="pull-left">Create a new karte</a>
+        </li>
+    </ul>
+{% endblock %}

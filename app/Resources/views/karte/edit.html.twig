@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <h1>Karte edit</h1>
+<ul>
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input class="btn-link" type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+
+        <li class="list-unstyled">
+            <a href="{{ path('karte_index') }}" class="btn-link pull-right">Back to the list</a>
+        </li>
+        <li class="list-unstyled">
+            {{ form_start(delete_form) }}
+                <input class="btn-outline-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

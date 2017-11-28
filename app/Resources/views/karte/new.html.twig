@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <h1 class="text-left">Card create</h1><div class="panel panel-default"></div>
+<div>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="btn-link" value="Create" />
+    {{ form_end(form) }}
+    </div>
+
+    <ul>
+        <li class="list-unstyled">
+            <a href="{{ path('karte_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

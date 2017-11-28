@@ -1,0 +1,129 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: worky
+ * Date: 21.11.2017
+ * Time: 19:45
+ */
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * class Karteikasten
+ * @package AppBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table (name="karteikasten")
+ */
+class Karteikasten {
+    /**
+     * @ORM\Column (type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue (strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="id")
+     */
+    private $kasten_id;
+
+    /**
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+
+    /**
+     * @var Fach
+     */
+    private $fach;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKastenId()
+    {
+        return $this->kasten_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFachId()
+    {
+        return $this->fach_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFachListe()
+    {
+        return [
+            'Fachnummer'
+        ];
+    }
+
+    /**
+     * @param mixed $fachListe
+     */
+    public function setFachListe($fachListe)
+    {
+        $this->fachListe = $fachListe;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="Fach", mappedBy="karteikasten")
+     */
+    private $fach_id;
+
+    /**
+     * @ORM\Column (type="json_array")
+     */
+    private $fachListe = [];
+
+    /**
+     * Karteikasten constructor.
+     * @param Fach $fach
+     */
+    public function __construct(Fach $fach)
+    {
+        for ($i = 0; $i < 3; $i++) {
+            $fach = new Fach();
+            $this->fachListe[$i] = $fach;
+        }
+        $this->fach = $fach;
+    }
+
+    /**
+     * @var TYPE_NAME $faecher
+     * @return mixed
+     */
+    public function printFaecher() {
+        $newFach = new Fach();
+        foreach ($this->getFachListe() as $faecher) {
+            $fachinhalt = $newFach->getId($faecher) . ' | '. $newFach->printKarten($faecher);
+            return $fachinhalt;
+        }
+    }
+
+    /**
+     *
+     */
+    public function load() {
+
+    }
+
+    public function save() {
+
+    }
+}

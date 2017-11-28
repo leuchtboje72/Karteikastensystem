@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}AppBundle:Navigate:impressum{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <br />
+    <div class="panel panel-center bg-dark">
+        <h1>Willkommen im Impressum</h1>
+    </div>
+    <a href="{{ path('index') }}">Home</a>
+{% endblock %}

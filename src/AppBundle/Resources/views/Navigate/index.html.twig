@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}AppBundle:Navigate:index{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <br />
+    <div class="panel bg-dark">
+        <h1>Willkommen im Karteikartensystem</h1>
+        <a href="{{ path('karte_index') }}">Karten anzeigen</a>
+    </div>
+{% endblock %}

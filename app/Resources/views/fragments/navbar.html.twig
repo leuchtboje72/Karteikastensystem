@@ -1,0 +1,30 @@
+{# app/Resources/views/fragments/navbar.html.twig #}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand" href="#">Navy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+   <!-- <div class="container">-->
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('karte_index') }}">Karte <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('impressum') }}">Impressum</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+
+            <li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ logout_path() }}" class="btn-outline-danger bg-dark">Logout</a>
+                {% endif %}
+            </li>
+
+        </ul>
+    </div>
+
+</nav>

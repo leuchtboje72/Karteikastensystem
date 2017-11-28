@@ -1,0 +1,109 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: worky
+ * Date: 21.11.2017
+ * Time: 18:26
+ */
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * class Fach
+ * @package AppBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table (name="fach")
+ */
+class Fach
+{
+    /**
+     * @ORM\Column (type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue (strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Karte", mappedBy="fach")
+     */
+    private $karten_id;
+
+    /**
+     * @var array
+     * @ORM\Column (type="json_array")
+     */
+    private $kartenListe = [];
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Karteikasten", inversedBy="fach_id")
+     */
+    private $karteikasten;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKartenId()
+    {
+        return $this->karten_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKartenListe()
+    {
+        return [
+            'Kartennummer'
+        ];
+    }
+
+    /**
+     * @var array
+     * @param Karte $karte
+     * @return array
+     */
+    public function addKarte(Karte $karte) {
+        $this->kartenListe . array_pop($karte);
+        return $this->kartenListe;
+    }
+
+    /**
+     * @var TYPE_NAME $item
+     *
+     * @return TYPE_NAME $item
+     */
+    public function printKarten() {
+        $newKarte = new Karte();
+        foreach ($this->kartenliste as $item) {
+            $kartenInhalt = $newKarte->getFach($item)
+                . '<br>' . $newKarte->getId($item)
+                . '<br>' . $newKarte->getFrage($item);
+              return $kartenInhalt;
+        }
+    }
+
+    /**
+     * @param mixed $kartenListe
+     */
+    public function setKartenListe($kartenListe)
+    {
+        $this->kartenListe = $kartenListe;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKarteikasten()
+    {
+        return $this->karteikasten;
+    }
+}

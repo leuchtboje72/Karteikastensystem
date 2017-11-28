@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    <h1>Karte</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ karte.id }}</td>
+            </tr>
+            <tr>
+                <th>Frage</th>
+                <td>{{ karte.frage }}</td>
+            </tr>
+            <tr>
+                <th>Antwort</th>
+                <td>{{ karte.antwort }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="list-group">
+        <li class="list-unstyled float-left">
+            <a href="{{ path('karte_index') }}" class="btn pull-left">Back to the list</a>
+        </li>
+        <li class="list-unstyled float-left">
+            <a href="{{ path('karte_edit', { 'id': karte.id }) }}" class="btn">Edit</a>
+        </li>
+        <li class="list-unstyled">
+            {{ form_start(delete_form) }}
+                <input type="submit" class="btn-outline-danger float-right" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
